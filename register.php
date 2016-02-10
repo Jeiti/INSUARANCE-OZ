@@ -9,7 +9,7 @@ else{
     echo mysqli_error($link);
 }
 
-
 mysqli_close($link);
+
 
 
