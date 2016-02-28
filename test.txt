@@ -6,3 +6,4 @@ index.html
 js
 register.php
 test.txt
+Привет всем!
