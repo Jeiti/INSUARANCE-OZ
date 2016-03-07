@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['register'])){
     if ($_POST['password'] != $_POST['password2']){
         die ("The passwords do not match");

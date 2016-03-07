@@ -34,8 +34,8 @@ require_once("header.php");
         </div>
         <div class="col-md-8 col-lg-8">
             <div class="jumbotron">
-                <h1>    Привет - это сайт о страховании</h1>
-                <p>   Любой текст</p>
+                <h1>Привет - это сайт о страховании</h1>
+                <p>Любой текст</p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button">Ещё ...</a></p>
             </div>
         </div>
