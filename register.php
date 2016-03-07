@@ -1,11 +1,11 @@
 <?php
 if (isset($_POST['register'])){
     if ($_POST['password'] != $_POST['password2']){
-        die ("Password not correct");
+        die ("The passwords do not match");
     }
     $link=mysqli_connect("localhost", "root", "123", "insuarance");
     if (!$link){
-        die ("ERROR!");
+        die ("No connection to the database!");
     }
     $query="insert into user(login,password) values ('$_POST[username]', '$_POST[password]')";
     if (mysqli_query($link,$query)){
