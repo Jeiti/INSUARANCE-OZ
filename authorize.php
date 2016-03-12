@@ -72,7 +72,6 @@ if (isset($_COOKIE['auth'])){
 }
 else{
     $query="select login, password from user where login=('$_POST[username]') and password=('$_POST[password]')";
-
     if ($rez=mysqli_query($link,$query)){
         if (mysqli_num_rows($rez)){
             if (isset($_POST['remember'])){
