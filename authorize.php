@@ -56,8 +56,6 @@ if (session_status() === PHP_SESSION_NONE)
 
 $link=mysqli_connect("localhost", "root", "123", "insuarance");
 
-
-
 if (isset($_COOKIE['auth'])){
     $query = "select * from user where login = $_POST[login] and token=$_COOKIE[auth]";
     if ($rez=mysqli_query($link,$query)){
@@ -71,7 +69,7 @@ if (isset($_COOKIE['auth'])){
     }
 }
 else{
-    $query="select login, password from user where login=('$_POST[username]') and password=('$_POST[password]')";
+    $query="select login, password from user where login=('$_POST[username]') and password=('".md5($_POST['password'])."')";
     if ($rez=mysqli_query($link,$query)){
         if (mysqli_num_rows($rez)){
             if (isset($_POST['remember'])){

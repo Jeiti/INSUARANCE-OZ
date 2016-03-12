@@ -20,7 +20,7 @@ if(isset($_POST["register"])){
             echo "Такой пользователь существует";
             }
             else{
-                $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '$_POST[password]')";
+                $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '".md5 ($_POST['password'])."')";
                 if(mysqli_query($link, $query2)){
                     $_SESSION["user"]=$_POST["username"];
                     header("location: ./index_with_user.php");
