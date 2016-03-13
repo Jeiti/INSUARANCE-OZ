@@ -70,3 +70,46 @@
 .whitecolor{
     color: white;
 }
+#message {
+    width: 150px;
+    height: 30px;
+    position: fixed;
+    border-radius: 5px;
+    background-color: #817EA6;
+    opacity: .3;
+    z-index: 2;
+    right: 10px;
+    top: 20px;
+    padding: 5px;
+    transition: opacity 0.5s 0.01s linear;
+    -webkit-transition: opacity 0.5s 0.01s linear;
+    -moz-transition: opacity 0.5s 0.01s linear;
+    -o-transition: opacity 0.5s 0.01s linear;
+}
+#message > div {
+    position: relative;
+}
+
+#message > div > div {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+#message > div > div:hover {
+    color: #2E296C;
+}
+
+#message > div > span {
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+
+#message:hover {
+    opacity: .7;
+}
+.enlarge_interval{
+    margin-bottom: 5px;
+}

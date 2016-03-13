@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+if (session_status()==PHP_SESSION_NONE){
+    session_start();
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -61,7 +64,7 @@ if (isset($_COOKIE['auth'])){
     if ($rez=mysqli_query($link,$query)){
         if (mysqli_num_rows($rez)){
             $_SESSION['user'] = $_POST['username'];
-            echo "добро пожаловать . $_SESSION[user]!!!";
+            header("location: ./index.php");
         }
     }
     else{
@@ -76,7 +79,8 @@ else{
                 setcookie('auth', $_POST['login'], time() + 3600*24*7, '/', $_SERVER['SERVER_NAME'], false, true);
             }
             $_SESSION['user'] = $_POST['username'];
-            echo "<h1>Добро пожаловать на сайт $_SESSION[user]!!!</h1>";
+            $_SESSION["flash"]["info"] = "welcome";
+            header("location: ./index.php");
         }
     }
     else{
