@@ -22,15 +22,6 @@ if(isset($_COOKIE["user_insuarance"])){
 
 <body>
 
-<?php
-    if (isset($_SESSION["flash"]["info"])){
-        echo "<aside id=\"message\">";
-        echo $_SESSION["flash"]["info"];
-        unset($_SESSION["flash"]["info"]);
-        echo "</aside>";
-    }
-?>
-
 <div class="container">
     <!--Navbar-->
 
@@ -104,6 +95,17 @@ if(isset($_COOKIE["user_insuarance"])){
             </nav>
         </div>
     </div>
+
+    <?php
+    if (isset($_SESSION["flash"]["info"])){
+        ?>
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong><?php echo $_SESSION["flash"]["info"] . " " . $_SESSION["user"]; unset($_SESSION["flash"]["info"]);?></strong>
+        </div>
+        <?php
+    }
+    ?>
 
 
 

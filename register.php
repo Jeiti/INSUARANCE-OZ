@@ -31,18 +31,15 @@ if(isset($_POST["register"])){
         mysqli_close($link);
     }
     else{
-        $_SESSION["message"] ="Пароли не совпадаютпопробуйте еще раз!";
+        $_SESSION["message"] ="Пароли не совпадают попробуйте еще раз!";
     }
-/*    exit;*/
 }
 
 ?>
 
 <?php
 require_once ("header.php");
-if(isset($_SESSION["message"]) && !empty($_SESSION["message"])){
-    echo ($_SESSION["message"]);
-}
+$_SESSION["flash"]["info"] = "WELCOME";
 ?>
 
     <div class="row">
