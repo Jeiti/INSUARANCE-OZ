@@ -1,9 +1,8 @@
 <?php
 if(session_status()==PHP_SESSION_NONE){
     session_start();
+    $_SESSION["message"]=0;
 }
-
-
 
 if(isset($_POST["register"])){
     header("content-type: text/html; charset=utf-8");
@@ -17,7 +16,7 @@ if(isset($_POST["register"])){
         }
         else
             if(mysqli_num_rows($select_user)==1){
-            echo "Такой пользователь существует";
+                $_SESSION["message"] = "Такой пользователь уже существует, выберите другое имя!";
             }
             else{
                 $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '".md5 ($_POST['password'])."')";
@@ -32,15 +31,18 @@ if(isset($_POST["register"])){
         mysqli_close($link);
     }
     else{
-        echo "<h1>Пароли не совпадают, попробуйте еще раз!!!</h1>";
+        $_SESSION["message"] ="Пароли не совпадаютпопробуйте еще раз!";
     }
-    exit;
+/*    exit;*/
 }
 
 ?>
 
 <?php
 require_once ("header.php");
+if(isset($_SESSION["message"]) && !empty($_SESSION["message"])){
+    echo ($_SESSION["message"]);
+}
 ?>
 
     <div class="row">
@@ -49,7 +51,7 @@ require_once ("header.php");
             <form class="" role="form"  method="post" action="">
                 <div class="form-group">
                     <label for="register_login">E-mail</label>
-                    <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value="<?php print_r($_POST['username']);?>">
+                    <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
                 </div>
                 <div class="form-group">
                     <label for="register_password">Password</label>

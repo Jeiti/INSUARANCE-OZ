@@ -1,7 +1,13 @@
-<?php error_reporting(E_ALL);
+<?php
+error_reporting(E_ALL);
 if (session_status()==PHP_SESSION_NONE){
     session_start();
 }
+
+if(isset($_COOKIE["user_insuarance"])){
+    $_SESSION["user"]=$_COOKIE["user_insuarance"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +22,14 @@ if (session_status()==PHP_SESSION_NONE){
 
 <body>
 
-    <?php
+<?php
     if (isset($_SESSION["flash"]["info"])){
         echo "<aside id=\"message\">";
         echo $_SESSION["flash"]["info"];
         unset($_SESSION["flash"]["info"]);
         echo "</aside>";
     }
-    ?>
+?>
 
 <div class="container">
     <!--Navbar-->
