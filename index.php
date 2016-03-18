@@ -4,6 +4,13 @@ require_once("header.php");
 
     <!--Body-->
     <div class="row">
+        <div class="col-md-8 col-lg-8">
+            <div class="jumbotron">
+                <h1>Привет - это сайт о страховании</h1>
+                <p>Любой текст</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Ещё ...</a></p>
+            </div>
+        </div>
         <div class="col-md-4">
             <div class="media">
                 <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="/img/car-bmw-headlight.jpg" class="media-object" /></a>
@@ -32,20 +39,11 @@ require_once("header.php");
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-lg-8">
-            <div class="jumbotron">
-                <h1>Привет - это сайт о страховании</h1>
-                <p>Любой текст</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Ещё ...</a></p>
-            </div>
-        </div>
     </div>
-    <div class="view">
-        <blockquote class="" contenteditable="true">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-        </blockquote>
-    </div>
+    <blockquote class="" contenteditable="true">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+    </blockquote>
     <!--Body-->
 
 <?php

@@ -1,3 +1,6 @@
+<a type="button" class="btn btn-sm btn-primary ontop" for="ontop" href="#">
+    Наверх
+</a>
 
 </div>
 
