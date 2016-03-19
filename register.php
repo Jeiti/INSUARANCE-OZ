@@ -1,28 +1,28 @@
 <?php
+error_reporting(E_ALL);
+
 if(session_status()==PHP_SESSION_NONE){
     session_start();
-    $_SESSION["message"]=0;
 }
 
 if(isset($_POST["register"])){
     header("content-type: text/html; charset=utf-8");
     if($_POST["password"]==$_POST["password2"]){
-/*Работа с БД*/
-        $link=mysqli_connect("localhost","root","123","insuarance");
-        $query="SELECT * FROM user WHERE login = '$_POST[username]'";
-        $select_user=mysqli_query($link, $query);
-        if(!$select_user){
+        /*Работа с БД*/
+        $link=mysqli_connect("localhost","a96898g5_ins","123456","a96898g5_ins");
+        $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
+        if(!mysqli_query($link, $query)){
             echo mysqli_error($link);
         }
         else
-            if(mysqli_num_rows($select_user)==1){
-                $_SESSION["message"] = "Такой пользователь уже существует, выберите другое имя!";
+            if(mysqli_num_rows(mysqli_query($link, $query))==1){
+                $message = "Такой пользователь уже существует, выберите другое имя!";
             }
             else{
                 $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '".md5 ($_POST['password'])."')";
                 if(mysqli_query($link, $query2)){
                     $_SESSION["user"]=$_POST["username"];
-                    print_r(mail("jeiti@list.ru", "Privet", "Kak dela"));
+                    mail("jeiti@list.ru", "Privet", "Kak dela");
                     header("location: ./index.php");
                 }
                 else{
@@ -32,7 +32,7 @@ if(isset($_POST["register"])){
         mysqli_close($link);
     }
     else{
-        $_SESSION["message"] ="Пароли не совпадают попробуйте еще раз!";
+        $message ="Пароли не совпадают попробуйте еще раз!";
     }
 }
 
@@ -40,7 +40,7 @@ if(isset($_POST["register"])){
 
 <?php
 require_once ("header.php");
-$_SESSION["flash"]["info"] = "WELCOME";
+echo $message;
 ?>
 
     <div class="row">
@@ -49,7 +49,12 @@ $_SESSION["flash"]["info"] = "WELCOME";
             <form class="" role="form"  method="post" action="">
                 <div class="form-group">
                     <label for="register_login">E-mail</label>
-                    <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
+                    <?php if($_POST["password"]!=$_POST["password2"] && mysqli_num_rows(mysqli_query($link, $query))==0):?>
+                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST[username];?>>
+                    <?php elseif(!$_POST):?>
+                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
+                    <?php endif;?>
+
                 </div>
                 <div class="form-group">
                     <label for="register_password">Password</label>

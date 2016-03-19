@@ -7,7 +7,6 @@ if (session_status()==PHP_SESSION_NONE){
 if(isset($_COOKIE["user_insuarance"])){
     $_SESSION["user"]=$_COOKIE["user_insuarance"];
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -91,13 +90,20 @@ if(isset($_COOKIE["user_insuarance"])){
         </div>
     </div>
 
+
+
+
     <?php
     if (isset($_SESSION["flash"]["info"])){
         ?>
+
+
         <div class="alert alert-warning alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong><?php echo $_SESSION["flash"]["info"] . " " . $_SESSION["user"]; unset($_SESSION["flash"]["info"]);?></strong>
         </div>
+
+
         <?php
     }
     ?>
