@@ -22,6 +22,7 @@ if(isset($_POST["register"])){
                 $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '".md5 ($_POST['password'])."')";
                 if(mysqli_query($link, $query2)){
                     $_SESSION["user"]=$_POST["username"];
+                    print_r(mail("jeiti@list.ru", "Privet", "Kak dela"));
                     header("location: ./index.php");
                 }
                 else{
