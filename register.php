@@ -5,34 +5,31 @@ if(session_status()==PHP_SESSION_NONE){
     session_start();
 }
 
-if(isset($_POST["register"])){
+if(isset($_POST["register"])) {
     header("content-type: text/html; charset=utf-8");
-    if($_POST["password"]==$_POST["password2"]){
+    if ($_POST["password"] == $_POST["password2"]) {
         /*Работа с БД*/
-        $link=mysqli_connect("localhost","a96898g5_ins","123456","a96898g5_ins");
+        $link = mysqli_connect("localhost", "root", "123", "insuarance");
         $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
-        if(!mysqli_query($link, $query)){
+        if (!mysqli_query($link, $query)) {
             echo mysqli_error($link);
-        }
-        else
-            if(mysqli_num_rows(mysqli_query($link, $query))==1){
+        } else {
+            if (mysqli_num_rows(mysqli_query($link, $query)) == 1) {
                 $message = "Такой пользователь уже существует, выберите другое имя!";
-            }
-            else{
-                $query2="INSERT INTO user(login, password) VALUES('$_POST[username]', '".md5 ($_POST['password'])."')";
-                if(mysqli_query($link, $query2)){
-                    $_SESSION["user"]=$_POST["username"];
-                    mail("jeiti@list.ru", "Privet", "Kak dela");
+            } else {
+                $query2 = "INSERT INTO user(login, password) VALUES('$_POST[username]', '" . md5($_POST['password']) . "')";
+                if (mysqli_query($link, $query2)) {
+                    $_SESSION["user"] = $_POST["username"];
+                    print_r(mail("jeiti@list.ru", "Privet", "Kak dela"));
                     header("location: ./index.php");
-                }
-                else{
+                } else {
                     echo mysqli_error($link);
                 }
             }
-        mysqli_close($link);
-    }
-    else{
-        $message ="Пароли не совпадают попробуйте еще раз!";
+            mysqli_close($link);
+        }
+    } else {
+        $message = "Пароли не совпадают попробуйте еще раз!";
     }
 }
 
@@ -46,15 +43,14 @@ echo $message;
     <div class="row">
         <div class="col-md-3 column ui-sortable"></div>
         <div class="col-md-6 column ui-sortable">
-            <form class="" role="form"  method="post" action="">
+            <form class="" role="form"  method="post" action="#">
                 <div class="form-group">
                     <label for="register_login">E-mail</label>
                     <?php if($_POST["password"]!=$_POST["password2"] && mysqli_num_rows(mysqli_query($link, $query))==0):?>
-                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST[username];?>>
+                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST['username'];?>>
                     <?php elseif(!$_POST):?>
                         <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
                     <?php endif;?>
-
                 </div>
                 <div class="form-group">
                     <label for="register_password">Password</label>
@@ -67,7 +63,6 @@ echo $message;
                 <button type="submit" class="btn btn-success" name="register">Register</button>
             </form>
         </div>
-        <div class="col-md-3 column ui-sortable"></div>
     </div>
 
 

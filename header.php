@@ -98,7 +98,7 @@ if(isset($_COOKIE["user_insuarance"])){
         ?>
 
 
-        <div class="alert alert-warning alert-dismissable">
+        <div class="alert alert-dismissable alert-success" contenteditable="true">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong><?php echo $_SESSION["flash"]["info"] . " " . $_SESSION["user"]; unset($_SESSION["flash"]["info"]);?></strong>
         </div>
