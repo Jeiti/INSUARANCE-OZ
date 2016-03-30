@@ -7,7 +7,10 @@ if(session_status()==PHP_SESSION_NONE){
 
 if(isset($_POST["register"])) {
     header("content-type: text/html; charset=utf-8");
-    if ($_POST["password"] == $_POST["password2"]) {
+    if($_POST["captcha"]!=$_SESSION["captcha"]){
+        $message="Не правильно введено проверочное слово";
+    }
+    elseif ($_POST["password"] == $_POST["password2"]) {
         /*Работа с БД*/
         $link = mysqli_connect("localhost", "root", "123", "insuarance");
         $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
@@ -60,7 +63,12 @@ echo $message;
                     <label for="register_password2">Repeat your password</label>
                     <input class="form-control" id="register_password2" placeholder="Repeat password" type="password" name="password2">
                 </div>
+                <div class="form-group">
+                    <label for="enter_captcha">Enter captcha</label>
+                    <input class="form-control" id="enter_captcha" placeholder="Enter captcha" type="text" name="captcha">
+                </div>
                 <button type="submit" class="btn btn-success" name="register">Register</button>
+                <img src="captcha.php">
             </form>
         </div>
     </div>
