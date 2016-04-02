@@ -54,8 +54,7 @@ echo $message;
                     <label for="register_login">E-mail</label>
                     <?php if($_POST["password"]!=$_POST["password2"] && mysqli_num_rows(mysqli_query($link, $query))==0):?>
                         <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST['username'];?>
-                        <!------------------------------------------------------------------ почему то !POST не срабатывает -->
-                    <?php elseif(!$_POST  || (empty($_POST["username"])) && (empty($_POST["password"])) && (empty($_POST["password2"]))):?>
+                    <?php elseif((empty($_POST["username"])) && (empty($_POST["password"])) && (empty($_POST["password2"]))):?>
                         <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
                     <?php endif;?>
                 </div>
