@@ -10,7 +10,7 @@ if(isset($_POST["register"])) {
     if($_POST["captcha"]!=$_SESSION["captcha"]){
         $message="Не правильно введено проверочное слово";
     }
-    elseif ($_POST["password"] == $_POST["password2"]) {
+    elseif (($_POST["password"] == $_POST["password2"]) && (!empty($_POST["username"]))) {
         /*Работа с БД*/
         $link = mysqli_connect("localhost", "root", "123", "insuarance");
         $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
@@ -31,7 +31,10 @@ if(isset($_POST["register"])) {
             }
             mysqli_close($link);
         }
-    } else {
+    } elseif((empty($_POST["username"])) && (empty($_POST["password"])) && (empty($_POST["password2"]))){
+        $message = "Введите данные";
+    }
+    else{
         $message = "Пароли не совпадают попробуйте еще раз!";
     }
 }
@@ -50,8 +53,9 @@ echo $message;
                 <div class="form-group">
                     <label for="register_login">E-mail</label>
                     <?php if($_POST["password"]!=$_POST["password2"] && mysqli_num_rows(mysqli_query($link, $query))==0):?>
-                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST['username'];?>>
-                    <?php elseif(!$_POST):?>
+                        <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username" value=<?php echo $_POST['username'];?>
+                        <!------------------------------------------------------------------ почему то !POST не срабатывает -->
+                    <?php elseif(!$_POST  || (empty($_POST["username"])) && (empty($_POST["password"])) && (empty($_POST["password2"]))):?>
                         <input class="form-control" id="register_login" placeholder="Enter e-mail" type="email" name="username">
                     <?php endif;?>
                 </div>

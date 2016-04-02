@@ -7,4 +7,8 @@ if(!empty($_SESSION["user"])){
     unset($_SESSION["user"]);
     setcookie('user_insuarance', '', time() - 3600);
 }
+else{
+    unset($_SESSION["user"]);
+    setcookie('user_insuarance', '', time() - 3600);
+}
 header("location: ./index.php");
