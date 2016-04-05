@@ -3,7 +3,7 @@ session_start();
 
 if(function_exists("imagepng")){
     header("content-type: image/png");
-    $img = imagecreatetruecolor(200,40);
+    $img = imagecreatetruecolor(150,35);
     $color = imagecolorallocate($img, 222, 184, 135);
 
     $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -13,10 +13,10 @@ if(function_exists("imagepng")){
         $letter = substr($str, $number, 1);
         $collectstr = $collectstr . $letter;
         if ($i % 2){
-            $y=10;
+            $y=5;
         }
         else{
-            $y=20;
+            $y=10;
         }
         imagestring($img, 5, ($i+1)*20, $y , $letter, $color);
     }

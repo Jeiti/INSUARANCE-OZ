@@ -12,7 +12,7 @@ if(isset($_POST["register"])) {
     }
     elseif (($_POST["password"] == $_POST["password2"]) && (!empty($_POST["username"]))) {
         /*Работа с БД*/
-        $link = mysqli_connect("localhost", "root", "123", "insuarance");
+        require_once ("config.php");
         $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
         if (!mysqli_query($link, $query)) {
             echo mysqli_error($link);
@@ -49,7 +49,7 @@ echo $message;
     <div class="row">
         <div class="col-md-3 column ui-sortable"></div>
         <div class="col-md-6 column ui-sortable">
-            <form class="" role="form"  method="post" action="#">
+            <form class="" role="form"  method="post" action="#"">
                 <div class="form-group">
                     <label for="register_login">E-mail</label>
                     <?php if($_POST["password"]!=$_POST["password2"] && mysqli_num_rows(mysqli_query($link, $query))==0):?>
@@ -67,11 +67,17 @@ echo $message;
                     <input class="form-control" id="register_password2" placeholder="Repeat password" type="password" name="password2">
                 </div>
                 <div class="form-group">
-                    <label for="enter_captcha">Enter captcha</label>
-                    <input class="form-control" id="enter_captcha" placeholder="Enter captcha" type="text" name="captcha">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label for="enter_captcha">Enter captcha</label>
+                            <input class="form-control" id="enter_captcha" placeholder="Enter captcha" type="text" name="captcha">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="captcha.php" style="position: absolute; right: 15px; bottom: -58px;">
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-success" name="register">Register</button>
-                <img src="captcha.php">
             </form>
         </div>
     </div>

@@ -1,11 +1,12 @@
 <?php
-print_r($_FILES);
-if (isset($_POST["hotnews"])){
-    $link=mysqli_connect("localhost", "root", "123", "insuarance");
+
+if ((isset($_POST["hotnews"])) && (!empty($_POST["title"])) && (!empty($_POST["content"]))){
+    require_once ("config.php");
     if (!mysqli_query($link,"insert into news(title, content, picture) values ('$_POST[title]', '$_POST[content]', '" . $_FILES["picture"]["name"] . "')")){
         echo mysqli_error($link);
     }
     else{
+        chmod("/img/news_img/", 0777);
         $filename = __DIR__."/img/news_img/" . $_FILES["picture"]["name"];
         move_uploaded_file($_FILES["picture"]["tmp_name"], $filename);
     }
@@ -14,20 +15,21 @@ if (isset($_POST["hotnews"])){
 
 require_once ("header.php");
 ?>
+    <form role="form" action="news_add.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Название новости</label>
+            <input class="form-control" id="title" placeholder="введите название новости" type="text" name="title">
+        </div>
+        <div class="form-group">
+            <label for="content">Новость</label>
+            <textarea class="form-control" id="content" placeholder="введите текст новости" type="text" name="content"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputfile">Выберите файл для загрузки</label>
+            <input id="inputfile" type="file" name="picture">
+        </div>
+        <button type="submit" class="btn btn-default" name="hotnews">Загрузить новость</button>
+    </form>
 
-<form class="" role="form" action="news_add.php" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="exampleInputEmail1">title</label>
-        <input class="form-control" id="exampleInputEmail1" placeholder="title" type="text" name="title">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Content</label>
-        <textarea class="form-control" id="exampleInputPassword1" placeholder="content" type="text" name="content"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input id="exampleInputFile" type="file" name="picture">
-        <p class="help-block">Example block-level help text here.</p>
-    </div>
-    <button type="submit" class="btn btn-default" name="hotnews">Submit</button>
-</form>
+<?php
+require_once ("footer.php");

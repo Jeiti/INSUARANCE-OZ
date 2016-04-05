@@ -78,7 +78,7 @@ if(isset($_COOKIE["user_insuarance"])){
                         <?php else:?>
                             <div class="row">
                                 <div class="col-md-12 column ui-sortable">
-                                    <li class="navbar-text">Добро пожаловать <?php print_r($_SESSION["user"]);?>
+                                    <li class="navbar-text"><?php print_r($_SESSION["user"]);?>
                                         <a href="logout.php" class="btn btn-success navbar-btn" type="button">Выход</a>
                                     </li>
                                 </div>
@@ -90,26 +90,14 @@ if(isset($_COOKIE["user_insuarance"])){
         </div>
     </div>
 
-
-
-
     <?php
     if (isset($_SESSION["flash"]["info"])){
         ?>
-
-
-        <div class="alert alert-dismissable alert-success" contenteditable="true">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong><?php echo $_SESSION["flash"]["info"] . " " . $_SESSION["user"]; unset($_SESSION["flash"]["info"]);?></strong>
+        <div class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4>Добро пожаловать на сайт Insuarance-oz. Мы очень рады Вам - <?php print_r($_SESSION["user"]);?></h4>
         </div>
-
-
         <?php
     }
-    ?>
-
-
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
 
 

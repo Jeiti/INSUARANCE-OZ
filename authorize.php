@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
-$link=mysqli_connect("localhost", "a96898g5_ins", "123456", "a96898g5_ins");
+require_once ("config.php");
 
 if($_POST["remember"]){
     if((empty($_POST["username"])) && (empty($_POST["password"]))){

@@ -117,4 +117,6 @@
     position: fixed;
     right: 25px;
     bottom: 25px;
+    border-radius: 10px;
+    opacity: 0.5
 }
