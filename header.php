@@ -89,6 +89,9 @@ if(isset($_COOKIE["user_insuarance"])){
             </nav>
         </div>
     </div>
+<?php
+print_r($_FILES["avatar"]["name"]);
+ ?>
 
     <?php
     if (isset($_SESSION["flash"]["info"])){

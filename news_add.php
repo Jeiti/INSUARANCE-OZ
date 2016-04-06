@@ -14,6 +14,7 @@ if ((isset($_POST["hotnews"])) && (!empty($_POST["title"])) && (!empty($_POST["c
 }
 
 require_once ("header.php");
+print_r($_FILES["avatar"]);
 ?>
     <form role="form" action="news_add.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
