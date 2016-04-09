@@ -85,10 +85,10 @@ echo $message;
                         </div>
                         <!----------------------------------------------------------------------------------------------------------------------->
                         <div class="col-md-2">
-                            <button type="submit" class="glyphicon glyphicon-refresh" name="reload_captcha" style="position: absolute; left: 85px; top: 22.5px; height: 38px; width: 38px"></button>
+                            <button type="button" class="glyphicon glyphicon-refresh" name="reload_captcha" id="reload_captcha" style="position: absolute; left: 85px; top: 22.5px; height: 38px; width: 38px"></button>
                         </div>
                         <div class="col-md-4">
-                            <img src="captcha.php" style="position: absolute; right: 15px; bottom: -58px;">
+                            <img src="captcha.php" id="img_captcha" style="position: absolute; right: 15px; bottom: -58px;">
                         </div>
                         <!----------------------------------------------------------------------------------------------------------------------->
                     </div>
