@@ -12,7 +12,7 @@ if(isset($_POST["register"])) {
     }
     elseif (($_POST["password"] == $_POST["password2"]) && (!empty($_POST["username"]))) {
         /*Работа с БД*/
-        require_once ("config.php");
+        require_once("config.inc");
         $query = "SELECT * FROM user WHERE login = '$_POST[username]'";
         if (!mysqli_query($link, $query)) {
             echo mysqli_error($link);
@@ -26,11 +26,10 @@ if(isset($_POST["register"])) {
                 if (mysqli_query($link, $query2)) {
                     $_SESSION["flash"]["info"] = "WELCOME";
                     $_SESSION["user"] = $_POST["username"];
-/*-----------------------------------------------------------------------------------проверить этот код*/
                     chmod("/img/avatars_img/", 0777);
                     $filename = __DIR__."/img/avatars_img/" . $_FILES["avatar"]["name"];
                     move_uploaded_file($_FILES["avatar"]["tmp_name"], $filename);
-/*-----------------------------------------------------------------------------------проверить этот код*/
+
 
 
                     header("location: ./index.php");
@@ -84,12 +83,14 @@ echo $message;
                             <label for="enter_captcha">Enter captcha</label>
                             <input class="form-control" id="enter_captcha" type="text" name="captcha">
                         </div>
+                        <!----------------------------------------------------------------------------------------------------------------------->
                         <div class="col-md-2">
                             <button type="submit" class="glyphicon glyphicon-refresh" name="reload_captcha" style="position: absolute; left: 85px; top: 22.5px; height: 38px; width: 38px"></button>
                         </div>
                         <div class="col-md-4">
                             <img src="captcha.php" style="position: absolute; right: 15px; bottom: -58px;">
                         </div>
+                        <!----------------------------------------------------------------------------------------------------------------------->
                     </div>
                 </div>
             <div class="form-group">

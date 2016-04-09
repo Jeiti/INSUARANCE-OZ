@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
-require_once ("config.php");
+require_once("config.inc");
 
 if($_POST["remember"]){
     if((empty($_POST["username"])) && (empty($_POST["password"]))){

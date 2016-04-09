@@ -101,6 +101,8 @@ print_r($_FILES["avatar"]["name"]);
             <h4>Добро пожаловать на сайт Insuarance-oz. Мы очень рады Вам - <?php print_r($_SESSION["user"]);?></h4>
         </div>
         <?php
+        unset($_SESSION["flash"]);
     }
+
 
 

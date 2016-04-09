@@ -1,8 +1,8 @@
 <?php
 
 if ((isset($_POST["hotnews"])) && (!empty($_POST["title"])) && (!empty($_POST["content"]))){
-    require_once ("config.php");
-    if (!mysqli_query($link,"insert into news(title, content, picture) values ('$_POST[title]', '$_POST[content]', '" . $_FILES["picture"]["name"] . "')")){
+    require_once("config.inc");
+    if (!mysqli_query($link,"insert into news(title, content, picture, date_time) values ('$_POST[title]', '$_POST[content]', '" . $_FILES['picture']['name'] . "', '" . date("y.m.d H:i") . "')")){
         echo mysqli_error($link);
     }
     else{
