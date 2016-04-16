@@ -83,7 +83,7 @@ echo $message;
                             <label for="enter_captcha">Enter captcha</label>
                             <input class="form-control" id="enter_captcha" type="text" name="captcha">
                         </div>
-                        <!----------------------------------------------------------------------------------------------------------------------->
+                        <!-----------------------------------CAPTCHA----------------------------------------------------------------------------->
                         <div class="col-md-2">
                             <button type="button" class="glyphicon glyphicon-refresh" name="reload_captcha" id="reload_captcha" style="position: absolute; left: 85px; top: 22.5px; height: 38px; width: 38px"></button>
                         </div>
