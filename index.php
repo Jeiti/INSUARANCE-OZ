@@ -43,10 +43,12 @@ require_once("header.php");
         </div>
     </div>
     <hr>
-<p>     </p>
-
+<p id="forPagination"></p>
     <!--Body-->
 
 <?php
+
+/*require_once ("news.php");*/
+/*require_once ("pagination.php");*/
 require_once("footer.php");
 
