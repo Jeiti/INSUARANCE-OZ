@@ -120,3 +120,15 @@
     border-radius: 10px;
     opacity: 0.5
 }
+#ajax_info{
+    background-image: url("../img/ajax-loader.gif");
+    width:16px;
+    height:16px;
+    display: none;
+}
+.thumbnail>img{
+    max-height: 100px;
+}
+.img-rounded{
+    max-width: 300px;
+}

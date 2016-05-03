@@ -1,8 +1,8 @@
 <?php
-
 if ((isset($_POST["hotnews"])) && (!empty($_POST["title"])) && (!empty($_POST["content"]))){
     require_once("config.inc");
     if (!mysqli_query($link,"insert into news(title, content, picture, date_time) values ('$_POST[title]', '$_POST[content]', '" . $_FILES['picture']['name'] . "', '" . date("y.m.d H:i") . "')")){
+        //todo:посмотреть как передавать данные в кодировке utf-8
         echo mysqli_error($link);
     }
     else{
