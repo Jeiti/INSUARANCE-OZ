@@ -3,7 +3,7 @@
     <hr>
     <p class="muted pull-left">Insuarance-oz &copy; 2016</p>
 </footer>
-<a type="button" class="btn btn-sm btn-primary ontop" for="ontop" href=" ">
+<a type="button" class="btn btn-sm btn-primary ontop" for="ontop" href="#">
     Наверх
 </a>
 </div>

@@ -47,6 +47,7 @@ if(isset($_COOKIE["user_insuarance"])){
                         <li><a href="#">Contacts</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+
                         <?php if(!isset($_SESSION["user"])):?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register<b class="caret"></b></a>
@@ -89,6 +90,20 @@ if(isset($_COOKIE["user_insuarance"])){
             </nav>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 print_r($_FILES["avatar"]["name"]);
  ?>

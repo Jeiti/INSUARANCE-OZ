@@ -5,51 +5,71 @@ require_once("header.php");
 <!--Body-->
 <!---------------==================================================================================================================----------------------------------------->
 <div class="row">
-    <div class="col-md-8 col-lg-8">
-        <div class="jumbotron">
-            <h1>Привет - это сайт о страховании</h1>
-            <p>Любой текст</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Ещё ...</a></p>
+    <div class="col-sm-8">
+        <div class="jumbotron" contenteditable="true">
+            <h2>Hello, world!</h2>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-large" href="#">Learn more</a></p>
         </div>
     </div>
-    <!---------------==================================================================================================================----------------------------------------->
-    <div class="col-md-4">
-        <div class="media">
-            <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="/img/car-bmw-headlight.jpg" class="media-object" /></a>
-            <div class="media-body">
-                <h4 class="media-heading">
-                    Nested media heading
-                </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="media">
+                <a href="#" class="pull-left">
+                    <img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/" class="media-object">
+                </a>
+                <div class="media-body" contenteditable="true">
+                    <h4 class="media-heading">Nested media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
             </div>
         </div>
         <hr>
-        <div class="media">
-            <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="/img/car-bmw-headlight.jpg" class="media-object" /></a>
-            <div class="media-body">
-                <h4 class="media-heading">
-                    Nested media heading
-                </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+        <div class="row">
+            <div class="media">
+                <a href="#" class="pull-left">
+                    <img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/" class="media-object">
+                </a>
+                <div class="media-body" contenteditable="true">
+                    <h4 class="media-heading">Nested media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
             </div>
         </div>
         <hr>
-        <div class="media">
-            <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="/img/car-bmw-headlight.jpg" class="media-object" /></a>
-            <div class="media-body">
-                <h4 class="media-heading">
-                    Nested media heading
-                </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+        <div class="row">
+            <div class="media">
+                <a href="#" class="pull-left">
+                    <img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/" class="media-object">
+                </a>
+                <div class="media-body" contenteditable="true">
+                    <h4 class="media-heading">Nested media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!---------------==================================================================================================================----------------------------------------->
 <hr>
-<div id="ajax_info"></div>
-<p id="forNews">
+<!---------------==================================================================================================================----------------------------------------->
 
-</p>
-<p id="forPagination">
-    
-</p>
+<div class="row">
+    <div id="ajax_info"></div>
+    <p id="forNews">
+
+    </p>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-10">
+            <hr>
+            <p id="forPagination">
+
+            </p>
+        </div>
+    </div>
+
+</div>
 
 <!--Body-->
 

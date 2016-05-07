@@ -29,9 +29,6 @@ if(isset($_POST["register"])) {
                     chmod("/img/avatars_img/", 0777);
                     $filename = __DIR__."/img/avatars_img/" . $_FILES["avatar"]["name"];
                     move_uploaded_file($_FILES["avatar"]["tmp_name"], $filename);
-
-
-
                     header("location: ./index.php");
                     exit;
                 }

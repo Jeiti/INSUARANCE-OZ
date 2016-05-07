@@ -20,7 +20,7 @@ else{
                 </div>
                 <div class=\"col-md-8\">
                     <p>$row[date_time]</p>
-                    <h2 class=\"text - info text - left\">$row[title]</h2>
+                    <h2>$row[title]</h2>
                     <p>$row[content]</p>
                 </div>
             </div>

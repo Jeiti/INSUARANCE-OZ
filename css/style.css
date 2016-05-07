@@ -127,8 +127,11 @@
     display: none;
 }
 .thumbnail>img{
-    max-height: 100px;
+    height: 130px;
 }
 .img-rounded{
     max-width: 300px;
+}
+.nav ul a.btn{
+    margin-left: 0px;
 }

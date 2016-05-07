@@ -8,6 +8,9 @@ $(document).ready(function(){
         $("#img_captcha").attr("src", "/captcha.php?" + (new Date()).getTime());
     });//перезагрузка капчи
 
+    $(document).ready(function(){
+        $('.slider').slider({full_width: true});
+    });
 
     function showNews(num) {//функция показа новостей
         $("#ajax_info").show();//показать кружок загрузки анимированный
@@ -22,14 +25,17 @@ $(document).ready(function(){
                 $("p#forNews").empty();//очистить все в теге p с id='forNews'
                 $("p#forNews").append("<div class='row'></div>");//добавить в тот же абзац блок div class='row'
                 $.each(data, function (key, val) {//перебрать полученный массив в формате json
-                    $("p#forNews").append("<div class='col-md-4'>\
-                        <div class='thumbnail'>\
-                        <img class='img-rounded' src='img/news_img/" + val.picture + "'>\
-                        <h3>" + val.title + "</h3>\
-                        <p>" + val.content + "</p>\
-                        <p><a class='btn btn-primary' href='/page_news.php?new=" + val.id + "'>Подробнее</a>\
-                        </div>\
-                    </div>");//вывести блок новостей
+                    $("p#forNews").append(
+                        "<div class='col-md-4'>\
+                                <div class='thumbnail'>\
+                                    <img class='img-rounded' src='img/news_img/" + val.picture + "'>\
+                                    <h3>" + val.title + "</h3>\
+                                    <p>" + val.content + "</p>\
+                                    <p>\
+                                        <a class='btn btn-primary' href='/page_news.php?new=" + val.id + "'>Подробнее</a>\
+                                    </p>\
+                                </div>\
+                        </div>");//вывести блок новостей
                 });
                 $("#ajax_info").hide();//скрыть анимацию
             },
@@ -53,7 +59,7 @@ $(document).ready(function(){
                 // через each + 2 параметра, data и function, у функции еще 2 параметра - ключ и значение
                 //у значения могут быть поля - например - val.pages, имена полей берутся из php массива который
                 // формируется на странице php в качестве ключа - это и есть поля
-                $("ul.pagination").append("<li><a class='pagination' href='#' value='"+val.value+"'>" + val.pages + "</a></li>");//добавить в ul class="pagination" ссылки
+                $("ul.pagination").append("<li><a class='pagination' href='#' value='" + val.value + "'>" + val.pages + "</a></li>");//добавить в ul class="pagination" ссылки
             });
             //ниже функция определяет какая страница нажата
             $("a.pagination").click(function (event) {//дело в том, что необходимо поместить в success
@@ -64,4 +70,5 @@ $(document).ready(function(){
             });
         }
     });
+
 });
