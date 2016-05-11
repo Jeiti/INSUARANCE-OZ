@@ -22,8 +22,8 @@ else{
             $content = substr($content,0,120);//обрезать строку до 120 символов
             $content=$content."...";
         }
-        $array[] = ['title'=>   iconv(mb_detect_encoding($title), "UTF-8", $title),
-                    'content'=> iconv(mb_detect_encoding($content), "UTF-8", $content),
+        $array[] = ['title'=>   iconv(mb_detect_encoding($title), "UTF-8", $title),//iconv - функция для изменения кодировки передаваемого текста
+                    'content'=> iconv(mb_detect_encoding($content), "UTF-8", $content),//iconv - функция для изменения кодировки передаваемого текста
                     'id'=>      $id,
                     'picture'=> $picture
         ];

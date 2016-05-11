@@ -1,9 +1,8 @@
 $(document).ready(function(){
     $(document).on('click','a.pagination',function (event) {//функция определяет какая страница нажата ->
         // -> и открывает страницу с новостями и пагинацию перегружает
-        var num = $(this).attr('value');//todo: не правильно работает нажатие на ссылку
-        alert(num);
-        event.preventDefault()
+        var num = $(this).attr('value');
+        event.preventDefault();
         showNews(num);
         showPagination(num);
     });//функция обработки события нажатия на страницы пагинации
@@ -58,7 +57,8 @@ $(document).ready(function(){
                     // через each + 2 параметра, data и function, у функции еще 2 параметра - ключ и значение
                     //у значения могут быть поля - например - val.pages, имена полей берутся из php массива который
                     // формируется на странице php в качестве ключа - это и есть поля
-                    $("ul.pagination").append("<li><a class='pagination' href='#' value='" + val.value + "'>" + val.pages + "</a></li>");//добавить в ul class="pagination" ссылки
+                    $("ul.pagination").append("<li><a class='pagination' href='#' value='" + val.value + "'>" + val.pages + "</a></li>");//добавить в ul
+                    // class="pagination" для ссылки
                 });
             }
         });
