@@ -1,16 +1,16 @@
 $(document).ready(function(){
-/*    $(document).click('a.pagination', function (event) {
-        var num = $("a.pagination").html();//todo: не правильно работает нажатие на ссылку
+    $(document).on('click','a.pagination',function (event) {//функция определяет какая страница нажата ->
+        // -> и открывает страницу с новостями и пагинацию перегружает
+        var num = $(this).attr('value');//todo: не правильно работает нажатие на ссылку
         alert(num);
-    });*/
+        event.preventDefault()
+        showNews(num);
+        showPagination(num);
+    });//функция обработки события нажатия на страницы пагинации
 
     $("#reload_captcha").click(function () {
         $("#img_captcha").attr("src", "/captcha.php?" + (new Date()).getTime());
     });//перезагрузка капчи
-
-    $(document).ready(function(){
-        $('.slider').slider({full_width: true});
-    });
 
     function showNews(num) {//функция показа новостей
         $("#ajax_info").show();//показать кружок загрузки анимированный
@@ -45,30 +45,28 @@ $(document).ready(function(){
             }
         });
     }//функция показа новостей
+    function showPagination(page) {
+        $.ajax({
+            url: "/pagination.php",
+            type: "get",
+            dataType: "json",
+            data: {page:page},
+            success: function (data) {
+                $("p#forPagination").empty();
+                $("p#forPagination").append("<ul class='pagination'></ul>")
+                $.each(data, function (key, val) {//массив json всегда перебирается таким способом
+                    // через each + 2 параметра, data и function, у функции еще 2 параметра - ключ и значение
+                    //у значения могут быть поля - например - val.pages, имена полей берутся из php массива который
+                    // формируется на странице php в качестве ключа - это и есть поля
+                    $("ul.pagination").append("<li><a class='pagination' href='#' value='" + val.value + "'>" + val.pages + "</a></li>");//добавить в ul class="pagination" ссылки
+                });
+            }
+        });
+    }//функция показа навигации
 
     showNews(1);
+    showPagination(1);
 
-    //для пагинации
-    $.ajax({
-        url: "/pagination.php",
-        type: "get",
-        dataType: "json",
-        success: function (data) {
-            $("p#forPagination").append("<ul class='pagination'></ul>")
-            $.each(data, function (key, val) {//массив json всегда перебирается таким способом 
-                // через each + 2 параметра, data и function, у функции еще 2 параметра - ключ и значение
-                //у значения могут быть поля - например - val.pages, имена полей берутся из php массива который
-                // формируется на странице php в качестве ключа - это и есть поля
-                $("ul.pagination").append("<li><a class='pagination' href='#' value='" + val.value + "'>" + val.pages + "</a></li>");//добавить в ul class="pagination" ссылки
-            });
-            //ниже функция определяет какая страница нажата
-            $("a.pagination").click(function (event) {//дело в том, что необходимо поместить в success
-                // обработчик нажатия - это нюанс, function (event) - это для блокирования перехода по ссылке
-                var num = $(this).attr('value');
-                event.preventDefault();//само блокирование перехода по ссылке, т.е. при нажатии на ссылку перехода не будет
-                showNews(num);
-            });
-        }
-    });
+
 
 });

@@ -1,11 +1,12 @@
 <?php
 require_once("config.inc");
+header("content-type: application/json");
 $res_count = mysqli_query($link, "select count(*) from news");
 $row = mysqli_fetch_array($res_count);
 $count = $row[0];//сколько всего новостей
 $page_count = floor($count/NEWSPERPAGE)+1;//считает сколько будет страниц - всего
 /*$num = isset($_GET['num'])?$_GET['num']-1:0;//определяет какая страница нажата-1, это для в бд*/
-$page=isset($_GET['num'])?$_GET['num']:5;//какая выбрана страница
+$page=isset($_GET['page'])?$_GET['page']:5;//какая выбрана страница
 $selected_page = ceil(OUTPUTNEWS/2)+1;//определяет после какго номера идет середина пагинации
 $start_count_pages = ceil(OUTPUTNEWS/2)-1;//определяет сколько влево и вправо можно сдвигать
 $pagination_array=[];
@@ -33,6 +34,6 @@ else{
         }
     }
 }
-$pagination_array[]=['pages'=>'&gt;','value'=>'num+1'];//todo: не знаю как отловить нажатие на эту кнопку и сделать "текущая_страница + 1"
+$pagination_array[]=['pages'=>'&gt;','value'=>$page+1];
 $pagination_array[]=['pages'=>'&gt;&gt;'];//todo: как перейти на последнюю страницу
 echo json_encode($pagination_array);//обязательная функция для отправки json массива + обязательно через echo
