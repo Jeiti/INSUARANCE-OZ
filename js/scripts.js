@@ -12,8 +12,8 @@ $(document).ready(function(){
     });//перезагрузка капчи
 
     function showNews(num) {//функция показа новостей
-        $("#ajax_info").show();//показать кружок загрузки анимированный
-        //для новостей
+        $("#ajax_info").show();//показать кружок загрузки анимированный для новостей
+        $("div#forNews").empty();//очистить все в теге p с id='forNews'
         $.ajax({
             url: "/news.php",//страница обработчик - где код php, который формирует массив json
             type: "GET",//метод обращения к странице
@@ -21,7 +21,6 @@ $(document).ready(function(){
             data: {num: num},//что передаем в данном случае в массив GET
             success: function (data) {//в случае удачного выполнения скрипта
                 console.log(data);//вывести в консоль полученные данные
-                $("#forNews").empty();//очистить все в теге p с id='forNews'
                 $.each(data, function (key, val) {//перебрать полученный массив в формате json
                     $("#forNews").append(
                         "<div class='col-md-4'>\
@@ -35,7 +34,6 @@ $(document).ready(function(){
                                 </div>\
                         </div>");//вывести блок новостей
                 });
-/*                $("p#forNews").wrap("<div class='row'></div>")*/
                 $("#ajax_info").hide();//скрыть анимацию
             },
             error: function(xhr,status,message){//если ошибка, то вывести в сообщении что за ошибка, ее статус
