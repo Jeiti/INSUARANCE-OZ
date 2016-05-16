@@ -135,3 +135,19 @@
 .nav ul a.btn{
     margin-left: 0px;
 }
+#forNews+hr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+#forPagination{
+    margin-left: 30%;
+    margin-right: 30%;
+    height: 50px;
+}
+ul.pagination{
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+}

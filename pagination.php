@@ -13,7 +13,7 @@ $pagination_array=[];
 $pagination_array[] = ['pages'=>'&lt;&lt;','value'=>1];
 $pagination_array[] = ['pages'=>'&lt;','value'=>$page-1];
 
-if(!isset($page) || $page<$selected_page){
+if(!isset($page) || $page<$selected_page){//если выбранная страница меньше середины пагинации
     for ($i=1; $i<=OUTPUTNEWS;$i++){
         if($page_count>OUTPUTNEWS){
             $pagination_array[]=['pages'=>$i,'value'=>$i];
@@ -24,13 +24,10 @@ if(!isset($page) || $page<$selected_page){
     }
 }
 else{
-    if($page>=$selected_page){
+    if($page>=$selected_page){//если выбранная страница больше или равна середие пагинации
         $pagination_array[]=['pages'=>'...','value'=>$page-2];
         for($i=$start_count_pages;$i<=$start_count_pages+$selected_page;$i++){
             $pagination_array[]=['pages'=>$i,'value'=>$i];
-        }
-        if ($page<$selected_page){
-            $pagination_array[]=['pages'=>'...','value'=>$page-2];
         }
     }
 }

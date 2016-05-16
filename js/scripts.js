@@ -21,10 +21,9 @@ $(document).ready(function(){
             data: {num: num},//что передаем в данном случае в массив GET
             success: function (data) {//в случае удачного выполнения скрипта
                 console.log(data);//вывести в консоль полученные данные
-                $("p#forNews").empty();//очистить все в теге p с id='forNews'
-                $("p#forNews").append("<div class='row'></div>");//добавить в тот же абзац блок div class='row'
+                $("#forNews").empty();//очистить все в теге p с id='forNews'
                 $.each(data, function (key, val) {//перебрать полученный массив в формате json
-                    $("p#forNews").append(
+                    $("#forNews").append(
                         "<div class='col-md-4'>\
                                 <div class='thumbnail'>\
                                     <img class='img-rounded' src='img/news_img/" + val.picture + "'>\
@@ -36,6 +35,7 @@ $(document).ready(function(){
                                 </div>\
                         </div>");//вывести блок новостей
                 });
+/*                $("p#forNews").wrap("<div class='row'></div>")*/
                 $("#ajax_info").hide();//скрыть анимацию
             },
             error: function(xhr,status,message){//если ошибка, то вывести в сообщении что за ошибка, ее статус
@@ -51,8 +51,8 @@ $(document).ready(function(){
             dataType: "json",
             data: {page:page},
             success: function (data) {
-                $("p#forPagination").empty();
-                $("p#forPagination").append("<ul class='pagination'></ul>")
+                $("#forPagination").empty();
+                $("#forPagination").append("<ul class='pagination'></ul>")
                 $.each(data, function (key, val) {//массив json всегда перебирается таким способом
                     // через each + 2 параметра, data и function, у функции еще 2 параметра - ключ и значение
                     //у значения могут быть поля - например - val.pages, имена полей берутся из php массива который

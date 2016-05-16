@@ -54,27 +54,23 @@ require_once("header.php");
 <hr>
 <!---------------==================================================================================================================----------------------------------------->
 
-<div class="row">
-    <div id="ajax_info"></div>
-    <p id="forNews">
+<!--<div class="row">-->
+    <div id="ajax_info">
 
-    </p>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-10">
-            <hr>
-            <p id="forPagination">
-
-            </p>
-        </div>
     </div>
+    <div class="row" id="forNews">
 
-</div>
+    </div>
+    <hr>
+    <div class="row" id="forPagination">
+
+    </div>
+<!--</div>-->
 
 <!--Body-->
 
 <?php
 require_once("footer.php");
 ?>
-</div>
+<!--</div>-->
 
