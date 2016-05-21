@@ -66,8 +66,13 @@ require_once("header.php");
 
     </div>
 <!--</div>-->
-
 <!--Body-->
+<br>
+<br>
+<br>
+<h1 class="forCard">Мы находимся тут!!!</h1>
+<br>
+<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=vTnJDp4uTJJDnIaE-vFtLT8gztrYUSCm&width=1140&height=250&lang=ru_RU&sourceType=constructor&scroll=true"></script>
 
 <?php
 require_once("footer.php");
