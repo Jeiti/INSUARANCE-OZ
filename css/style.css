@@ -156,6 +156,77 @@ ul.pagination{
     margin-right: 45%;
     margin-bottom: 2%;
 }
-.forCard{
-    text-align: center;
+@keyframes anim_letters {
+    0%{    -moz-transform: scale(.5);}
+    100%{    -moz-transform: scale(1);}
 }
+.h2{
+    text-align: center;
+    text-shadow: 2px 2px 3px black;
+    font-family: Purisa, Serif;
+    animation: anim_letters 5s ease 0s infinite alternate;
+}
+.gallery{
+    padding: 0px 10%;
+}
+@media (max-width:1920px) {
+    .thumbnail{
+        width:370px;
+        height:310px;
+    }
+}
+
+@media (max-width:1280px) {
+    .thumbnail{
+        width: 320px;
+        height: 300px;
+
+    }
+    .gallery {
+        padding: 0px 10%;
+        display: table-cell;
+    }
+}
+@media (max-width:980px) {
+    .thumbnail{
+        width: 100%;
+        height: 90%;
+    }
+    #forPagination{
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 50px;
+        text-align: center;
+    }
+    .gallery {
+        padding: 0px 5%;
+    }
+}
+@media (max-width:800px) {
+    .thumbnail{
+        width: 100%;
+        height: 90%;
+    }
+    ul>li>a.pagination{
+        padding: 3px 6px;
+    }
+    .row>.media{
+        width: 100%;
+        height: 100%;
+        margin: 0% 2%;
+        padding-right: 8%;
+    }
+}
+@media (max-width:360px) {
+    #forPagination{
+        margin-left: 10px;
+        margin-right: 10px;
+        height: 50px;
+        text-align: center;
+    }
+    .gallery {
+        padding: 0px 5%;
+        text-align: center;
+    }
+}
+

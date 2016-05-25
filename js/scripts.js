@@ -7,6 +7,7 @@ $(document).ready(function(){
         showPagination(num);
     });//функция обработки события нажатия на страницы пагинации
 
+
     $("#reload_captcha").click(function () {
         $("#img_captcha").attr("src", "/captcha.php?" + (new Date()).getTime());
     });//перезагрузка капчи
@@ -64,7 +65,6 @@ $(document).ready(function(){
 
     showNews(1);
     showPagination(1);
-
 
 
 });

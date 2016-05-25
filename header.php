@@ -42,9 +42,9 @@ if(isset($_COOKIE["user_insuarance"])){
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Products</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a class="navbarClass" href="#">Products</a></li>
+                        <li><a class="navbarClass" href="#">Photos</a></li>
+                        <li><a class="navbarClass" href="/contacts.php">Contacts</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
